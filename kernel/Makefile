@@ -2,12 +2,13 @@ TARGET=nyxieworldos.bin
 GNU=as
 CXX=g++
 DEBUG=-g
+OPT=-O1
 WARN=-Wall -Werror
 LD=ld
 CXXFLAGS = $(DEBUG) $(OPT) $(WARN)
-CXXFLAGS += -w -m64 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
-ASFLAGS = --64
-LDFLAGS = -melf64_x86_64
+CXXFLAGS += -w -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
+ASFLAGS = --32
+LDFLAGS = -melf_i386pe
 
 objs = loader.o kernel.o main.o
 
@@ -20,3 +21,8 @@ objs = loader.o kernel.o main.o
 $(TARGET): linker.ld $(objs)
 	$(LD) $(LDFLAGS) -T $< -o $@ $(objs)
 
+install: $(TARGET)
+	sudo cp $< /boot/$(TARGET)
+
+clean:
+	@rm -rf *.o $(TARGET)
