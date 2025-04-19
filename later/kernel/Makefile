@@ -8,7 +8,7 @@ LD=ld
 CXXFLAGS = $(DEBUG) $(OPT) $(WARN)
 CXXFLAGS += -w -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
 ASFLAGS = --32
-LDFLAGS = -melf_i386pe
+LDFLAGS = -melf_i386
 
 objs = loader.o kernel.o main.o
 

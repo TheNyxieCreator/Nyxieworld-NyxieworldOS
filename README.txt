@@ -11,3 +11,10 @@
 
 ~Thank you!
 	-TheNyxieCreator (Nyxieworld Project, 2025)
+
+
+
+Notes
+docker run --rm -it -v "%cd%":/root/env nyxieworldos-buildenv
+
+qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso

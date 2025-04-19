@@ -1,1 +1,7 @@
 boot/kernel.bin
+README.txt
+later/
+dist/
+build/
+buildenv/
+nxos.snd.bg.env/
